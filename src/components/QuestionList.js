@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
-import '../QuestionList.css'
 
 
 class QuestionList extends Component {
 
-
     render() {
-        console.log("Render called")
+        const list = this.props.questions
+
+        console.log("passed questions list", list)
 
         return (
             <div>
-
+                <ul>
+                    {list.map((question) => (
+                        <li key={question.id}>
+                            {question.optionOne.text} -OR- {question.optionTwo.text}
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }
