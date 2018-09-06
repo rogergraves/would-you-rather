@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../icon-round-question_mark.svg';
 import '../App.css';
-import Login from './Login'
+import Login from './LoginPage'
 
 class App extends Component {
   render() {
