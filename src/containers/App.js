@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import logo from '../icon-round-question_mark.svg';
-import '../App.css';
-import Login from './LoginPage'
+import React, { Component } from 'react'
+import logo from '../icon-round-question_mark.svg'
+import '../App.css'
+import Home from './Home'
 
 class App extends Component {
   render() {
@@ -11,10 +11,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Would You Rather</h1>
         </header>
-        <Login />
+        <Home />
       </div>
     );
   }
 }
 
-export default App;
+export default App
