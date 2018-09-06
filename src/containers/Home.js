@@ -20,10 +20,10 @@ class Home extends Component {
     }
 
     getQuestions = () => {
-        DataAPI._getQuestions().then((obj) => {
+        DataAPI._getQuestions().then((data) => {
             this.setState({
                 loading: false,
-                questions: this.filterQuestions(Object.values(obj))
+                questions: this.filterQuestions(Object.values(data))
             })
         })
     }

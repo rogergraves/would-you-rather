@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import QuestionDisplay from "./QuestionDisplay";
 
 
 class QuestionList extends Component {
-
     render() {
         const list = this.props.questions
 
@@ -12,9 +12,7 @@ class QuestionList extends Component {
             <div>
                 <ul>
                     {list.map((question) => (
-                        <li key={question.id}>
-                            {question.optionOne.text} -OR- {question.optionTwo.text}
-                        </li>
+                        <QuestionDisplay key={question.id} question={question} />
                     ))}
                 </ul>
             </div>
