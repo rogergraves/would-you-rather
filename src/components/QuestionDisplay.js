@@ -1,27 +1,14 @@
 import React, { Component } from 'react'
-import * as DataAPI from '../utils/_DATA'
 
 class QuestionDisplay extends Component {
-    state = {
-        users: []
-    }
-
     componentDidMount() {
-        DataAPI._getUsers().then((data) => {
-            this.setState({
-                users: data
-            })
-
-            console.log("Question ID is "+this.props.id+", users:", data)
-        })
+        console.log("Question ID from QuestionDisplay component is ", this.props.id)
     }
 
     render() {
         return (
             <div>
-                {this.props.question.optionOne.text}
-                -OR-
-                {this.props.question.optionTwo.text}
+                {this.props.id}
             </div>
         )
     }
