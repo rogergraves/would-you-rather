@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import '../QuestionList.css'
 import QuestionDisplay from "./QuestionDisplay";
 
 

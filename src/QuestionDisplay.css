@@ -14,4 +14,35 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    line-height: 1.6em;
+}
+
+.timestamp {
+    position: absolute;
+    bottom: 5px;
+    right: 19px;
+    font-size: .7em;
+}
+
+.or {
+    padding: 3px;
+    color: #999;
+    font-style: italic;
+}
+
+.view_poll_button {
+    position: absolute;
+    right: 8px;
+}
+
+button {
+    background-color: #666;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
 }
