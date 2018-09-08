@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Link } from 'react-router-dom'
 import logo from '../icon-round-question_mark.svg'
 import './App.css'
 import Home from './Home'
@@ -16,7 +17,13 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Would You Rather</h1>
         </header>
-        <Home />
+        <Route exact path='/' component={Home} />
+        <Route path='/questions/:id' render={({ location }) => (
+          <div>
+            <h1>/questions/:id path</h1>
+            <Link to='/'>Go Back</Link>
+          </div>
+        )}/>
       </div>
     );
   }

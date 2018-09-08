@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import './QuestionDisplay.css'
 
 class QuestionDisplay extends Component {
@@ -14,11 +15,13 @@ class QuestionDisplay extends Component {
               <div>
                 <div className='question'>
                   {this.props.question_option_1_text}
-                  <div class='or'>--OR--</div>
+                  <div className='or'>--OR--</div>
                   {this.props.question_option_2_text}
                 </div>
-                <div class='view_poll_button'>
-                  <button>View Poll</button>
+                <div className='view_poll_button'>
+                  <Link to={this.props.question_link}>
+                    <button>View Poll</button>
+                  </Link>
                 </div>
                 <div className='timestamp'>
                   {this.props.question_timestamp}
@@ -37,6 +40,7 @@ function mapStateToProps({ users, questions }, {id}) {
   return {
     user_name: user.name,
     user_avatar: user.avatarURL,
+    question_link: "/questions/"+question.id,
     question_option_1_text: question.optionOne.text,
     question_option_2_text: question.optionTwo.text,
     question_timestamp: (new Date(question.timestamp).toDateString())
