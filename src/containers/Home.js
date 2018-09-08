@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import QuestionList from '../components/QuestionList'
-import '../Home.css'
+import './Home.css'
 
 class Home extends Component {
 

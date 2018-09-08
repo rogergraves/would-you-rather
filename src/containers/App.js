@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../icon-round-question_mark.svg'
-import '../App.css'
+import './App.css'
 import Home from './Home'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'

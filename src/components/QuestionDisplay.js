@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import '../QuestionDisplay.css'
+import './QuestionDisplay.css'
 
 class QuestionDisplay extends Component {
     render() {
