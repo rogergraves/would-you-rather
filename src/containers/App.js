@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Link, NavLink } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom'
 import logo from '../icon-round-question_mark.svg'
 import './App.css'
 import Home from './Home'
@@ -13,27 +13,48 @@ class App extends Component {
   }
 
   render() {
+    const authedUser = this.props.authedUser
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Would You Rather</h1>
-          <div className='navigation'>
-            <NavLink exact to='/' className='navlink' activeClassName='active'>Home</NavLink>
-            <NavLink exact to='/login' className='navlink' activeClassName='active'>Log In</NavLink>
-          </div>
-        </header>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/login' component={Login} />
-        <Route path='/questions/:id' render={({ location }) => (
+        <Router>
           <div>
-            <h1>/questions/:id path</h1>
-            <Link to='/'>Go Back</Link>
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1 className="App-title">Welcome to Would You Rather</h1>
+              <div className='navigation'>
+                {authedUser ? (
+                  <p className='welcome_message'>Welcome {authedUser}</p>
+                ) : (
+                  <NavLink exact to='/login' className='navlink' activeClassName='active'>Log In</NavLink>
+                )}
+                <NavLink exact to='/' className='navlink' activeClassName='active'>Home</NavLink>
+              </div>
+            </header>
+
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/login' component={Login} />
+              <Route path='/questions/:id' render={({ location }) => (
+                <div>
+                  <h1>/questions/:id path</h1>
+                  <Link to='/'>Go Back</Link>
+                </div>
+              )}/>
+            </Switch>
           </div>
-        )}/>
+        </Router>
       </div>
     );
   }
 }
 
-export default connect()(App)
+function mapStateToProps({authedUser}) {
+  console.log("authedUser:", authedUser)
+
+  return {
+    authedUser: authedUser
+  }
+}
+
+export default connect(mapStateToProps)(App)

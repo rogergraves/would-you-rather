@@ -5,22 +5,23 @@ import User from '../components/User'
 class Login extends Component {
   render() {
     const users = this.props.users
-    console.log("users:", users)
+
     return (
       <div>
         <h1>Login</h1>
         <p>Select a user to log in as:</p>
-          {users.map((user) => ((
-            <User user={user} />
-          )))}
+        {users.map((user) => ((
+          <User key={user.id} user={user} />
+        )))}
       </div>
     )
   }
 }
 
-function mapStateToProps({ users }) {
-  console.log("mapStateToProps run, users:", users)
+function mapStateToProps({ authedUser, users }) {
+
   return {
+    authedUser,
     users: Object.values(users)
   }
 }
